@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pacientes>
+    <paciente>
+        <id>1</id>
+        <nombre>Juan Pérez</nombre>
+        <edad>45</edad>
+        <genero>Masculino</genero>
+        <diagnostico>Diabetes</diagnostico>
+        <telefono>555-1234</telefono>
+    </paciente>
+    <paciente>
+        <id>2</id>
+        <nombre>María López</nombre>
+        <edad>60</edad>
+        <genero>Femenino</genero>
+        <diagnostico>Hipertensión</diagnostico>
+        <telefono>555-5678</telefono>
+    </paciente>
+    <paciente>
+        <id>3</id>
+        <nombre>Carlos García</nombre>
+        <edad>35</edad>
+        <genero>Masculino</genero>
+        <diagnostico>Asma</diagnostico>
+        <telefono>555-8765</telefono>
+    </paciente>
+    <paciente>
+        <id>4</id>
+        <nombre>Ana Torres</nombre>
+        <edad>50</edad>
+        <genero>Femenino</genero>
+        <diagnostico>Colesterol Alto</diagnostico>
+        <telefono>555-4321</telefono>
+    </paciente>
+    <paciente>
+        <id>5</id>
+        <nombre>Pedro Sánchez</nombre>
+        <edad>55</edad>
+        <genero>Masculino</genero>
+        <diagnostico>Insuficiencia renal</diagnostico>
+        <telefono>555-9876</telefono>
+    </paciente>
+    <paciente>
+        <id>6</id>
+        <nombre>Laura Morales</nombre>
+        <edad>40</edad>
+        <genero>Femenino</genero>
+        <diagnostico>Migraña</diagnostico>
+        <telefono>555-3456</telefono>
+    </paciente>
+    <paciente>
+        <id>7</id>
+        <nombre>Daniel Hernández</nombre>
+        <edad>30</edad>
+        <genero>Masculino</genero>
+        <diagnostico>Alergias</diagnostico>
+        <telefono>555-6543</telefono>
+    </paciente>
+    <paciente>
+        <id>8</id>
+        <nombre>Isabel Reyes</nombre>
+        <edad>65</edad>
+        <genero>Femenino</genero>
+        <diagnostico>Osteoporosis</diagnostico>
+        <telefono>555-7654</telefono>
+    </paciente>
+    <paciente>
+        <id>9</id>
+        <nombre>Raúl Martínez</nombre>
+        <edad>28</edad>
+        <genero>Masculino</genero>
+        <diagnostico>Artritis</diagnostico>
+        <telefono>555-8765</telefono>
+    </paciente>
+    <paciente>
+        <id>10</id>
+        <nombre>Sofía Romero</nombre>
+        <edad>48</edad>
+        <genero>Femenino</genero>
+        <diagnostico>Gastritis</diagnostico>
+        <telefono>555-9876</telefono>
+    </paciente>
+</pacientes>

@@ -1,0 +1,86 @@
+Medicamento([
+{
+    "medicamentos": [
+        {
+            "id": 1,
+            "nombre": "Paracetamol",
+            "categoria": "Analgesico",
+            "dosis": "500mg",
+            "precio": 50,
+            "disponible": true
+        },
+        {
+            "id": 2,
+            "nombre": "Ibuprofeno",
+            "categoria": "Antiinflamatorio",
+            "dosis": "200mg",
+            "precio": 80,
+            "disponible": true
+        },
+        {
+            "id": 3,
+            "nombre": "Amoxicilina",
+            "categoria": "Antibiótico",
+            "dosis": "500mg",
+            "precio": 120,
+            "disponible": true
+        },
+        {
+            "id": 4,
+            "nombre": "Metformina",
+            "categoria": "Antidiabético",
+            "dosis": "850mg",
+            "precio": 60,
+            "disponible": false
+        },
+        {
+            "id": 5,
+            "nombre": "Enalapril",
+            "categoria": "Antihipertensivo",
+            "dosis": "10mg",
+            "precio": 90,
+            "disponible": true
+        },
+        {
+            "id": 6,
+            "nombre": "Loratadina",
+            "categoria": "Antihistamínico",
+            "dosis": "10mg",
+            "precio": 70,
+            "disponible": true
+        },
+        {
+            "id": 7,
+            "nombre": "Omeprazol",
+            "categoria": "Antiulceroso",
+            "dosis": "20mg",
+            "precio": 100,
+            "disponible": false
+        },
+        {
+            "id": 8,
+            "nombre": "Clopidogrel",
+            "categoria": "Antiagregante plaquetario",
+            "dosis": "75mg",
+            "precio": 200,
+            "disponible": true
+        },
+        {
+            "id": 9,
+            "nombre": "Salbutamol",
+            "categoria": "Broncodilatador",
+            "dosis": "2mg",
+            "precio": 150,
+            "disponible": true
+        },
+        {
+            "id": 10,
+            "nombre": "Aspirina",
+            "categoria": "Antipirético",
+            "dosis": "500mg",
+            "precio": 30,
+            "disponible": true
+        }
+    ]
+}
+])

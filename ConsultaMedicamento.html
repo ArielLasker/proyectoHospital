@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Medicamentos</title>
+    <style>
+        body {
+            font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, "serif";
+            text-align: center;
+            margin-top: 50px;
+        }
+        label, input, button {
+            display: block;
+            margin: 10px auto;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+		.esquina-derecha {
+            position: absolute;
+            top: 20px;
+            right: 70px;
+            margin: 10px;
+        }
+		.esquina-izquierda {
+            position: absolute;
+            top: 20px;
+            left: 70px;
+            margin: 10px;
+        }
+		img {
+            width: 250px; /* Cambia el tamaño según lo necesites */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Farmacia</h1>
+
+    <label for="medicamentoId" style="color: cadetblue;">Ingrese el ID del Medicamento:</label>
+    <input type="number" id="medicamentoId" placeholder="Medicamento">
+    <button onclick="buscarMedicamento()">Buscar en farmacia</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        // Función de simulación para los datos de Medicamentos.jsonp
+        const medicamentos = {
+            "medicamentos": [
+                {
+                    "id": 1,
+                    "nombre": "Paracetamol",
+                    "dosis": "500 mg",
+                    "indicaciones": "Fiebre y dolor leve",
+                    "contraindicaciones": "Hipersensibilidad al paracetamol"
+                },
+                {
+                    "id": 2,
+                    "nombre": "Ibuprofeno",
+                    "dosis": "400 mg",
+                    "indicaciones": "Dolor e inflamación",
+                    "contraindicaciones": "Úlceras gástricas"
+                },
+                {
+                    "id": 3,
+                    "nombre": "Aspirina",
+                    "dosis": "300 mg",
+                    "indicaciones": "Dolor y fiebre",
+                    "contraindicaciones": "Problemas de coagulación"
+                }
+                // Agrega más medicamentos según sea necesario
+            ]
+        };
+
+        // Función para buscar el medicamento por ID
+        function buscarMedicamento() {
+            const idMedicamento = document.getElementById('medicamentoId').value;
+            if (!idMedicamento) {
+                alert("Por favor, ingrese un ID válido.");
+                return;
+            }
+
+            let encontrado = false;
+            // Buscar el medicamento por ID
+            for (let medicamento of medicamentos.medicamentos) {
+                if (medicamento.id == idMedicamento) {
+                    document.getElementById('resultado').innerHTML = `
+                        <h3>Información del Medicamento</h3>
+                        <p><strong>Nombre:</strong> ${medicamento.nombre}</p>
+                        <p><strong>Dosis:</strong> ${medicamento.dosis}</p>
+                        <p><strong>Indicaciones:</strong> ${medicamento.indicaciones}</p>
+                        <p><strong>Contraindicaciones:</strong> ${medicamento.contraindicaciones}</p>
+                    `;
+                    encontrado = true;
+                    break;
+                }
+            }
+
+            if (!encontrado) {
+                document.getElementById('resultado').innerHTML = "<p>No se encontró el medicamento con ese ID.</p>";
+            }
+        }
+    </script>
+	<img src="frascos.jpg" alt="Esquina Derecha" class="esquina-derecha">
+	<img src="zorromedico.jpg" alt="Esquina Izquierda" class="esquina-izquierda">
+	<p style="color: red;">Consulte disponibilidad.</p>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Pacientes</title>
+    <style>
+        body {
+            font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, "serif";
+            text-align: center;
+            margin-top: 50px;
+			margin: 0;
+            padding: 0;
+        }
+        .esquina-izquierda {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            margin: 10px;
+        }
+        .esquina-derecha {
+            position: absolute;
+            top: 20px;
+            right: 0;
+            margin: 10px;
+        }
+        img {
+            width: 150px; /* Cambia el tamaño según lo necesites */
+            height: auto;
+        }
+
+        .texto-rojo {
+            color: red; /* Aplica color rojo */
+        }
+        .texto-azul {
+            color: cadetblue; /* Aplica color azul */
+        }
+        .texto-verde {
+            color: green; /* Aplica color verde */
+        }
+        .texto-personalizado {
+            color: #ff5733; /* Puedes usar código hexadecimal */
+        }
+
+        
+        label, input, button {
+            display: block;
+            margin: 10px auto;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+		
+		
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Página de consulta de Información del Paciente</h1>
+	
+
+    <label for="pacienteId" class="texto-azul">Ingrese el ID del Paciente:</label>
+    <input type="number" id="pacienteId" placeholder="ID del paciente">
+    <button onclick="buscarPaciente()">Buscar</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        // Función para buscar la información del paciente
+        function buscarPaciente() {
+            const idPaciente = document.getElementById('pacienteId').value;
+            if (!idPaciente) {
+                alert("Por favor, ingrese un ID válido.");
+                return;
+            }
+
+            // Cargar el archivo XML de registro
+            fetch('Registro.xml')
+                .then(response => response.text())
+                .then(data => {
+                    const parser = new DOMParser();
+                    const xml = parser.parseFromString(data, 'application/xml');
+                    const pacientes = xml.getElementsByTagName('paciente');
+                    let encontrado = false;
+
+                    // Buscar al paciente por ID
+                    for (let paciente of pacientes) {
+                        const id = paciente.getElementsByTagName('id')[0].textContent;
+                        if (id === idPaciente) {
+                            const nombre = paciente.getElementsByTagName('nombre')[0].textContent;
+                            const edad = paciente.getElementsByTagName('edad')[0].textContent;
+                            const genero = paciente.getElementsByTagName('genero')[0].textContent;
+                            const diagnostico = paciente.getElementsByTagName('diagnostico')[0].textContent;
+                            const telefono = paciente.getElementsByTagName('telefono')[0].textContent;
+
+                            document.getElementById('resultado').innerHTML = `
+                                <h3>Información del Paciente</h3>
+                                <p><strong>Nombre:</strong> ${nombre}</p>
+                                <p><strong>Edad:</strong> ${edad}</p>
+                                <p><strong>Género:</strong> ${genero}</p>
+                                <p><strong>Diagnóstico:</strong> ${diagnostico}</p>
+                                <p><strong>Teléfono:</strong> ${telefono}</p>
+                            `;
+                            encontrado = true;
+                            break;
+                        }
+                    }
+
+                    if (!encontrado) {
+                        document.getElementById('resultado').innerHTML = "<p>No se encontró al paciente con ese ID.</p>";
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al cargar el archivo XML:', error);
+                    document.getElementById('resultado').innerHTML = "<p>Error al cargar los datos.</p>";
+                });
+        }
+    </script>
+<!-- Imagen en la esquina superior izquierda -->
+    <img src="logo.jpg" alt="Esquina Izquierda" class="esquina-izquierda">
+
+    <!-- Imagen en la esquina superior derecha -->
+    <img src="medicina.jpg" alt="Esquina Derecha" class="esquina-derecha">
+	<p class="texto-rojo">Gracias por utilizar este servicio.</p>
+</body>
+</html>
